@@ -28,14 +28,9 @@ Catalyst::TraitFor::Controller::RenderView - Alternative to Catalyst::Action::Re
     package MyApp::Controller::Root;
     use Moose;
     use namespace::autoclean;
-    
+
     BEGIN { extends 'Catalyst::Controller' }
-    with 'CatalystX::Component::Traits';
-    
-    __PACKAGE__->config(
-        namespace => '',
-        traits => [qw/ RenderView /],
-    );
+    with 'Catalyst::TraitFor::Controller::RenderView;
 
 =head1 DESCRIPTION
 
@@ -50,14 +45,14 @@ as L<Catalyst::Action::RenderView> after end action.
 
 =head1 BUGS
 
-Will not compose with L<CatalystX::Components::Traits>
-and traits => [qw/ RenderView /].
-
 The code is a B<horrible hack>, as it delegates all the work
 to L<Catalyst::Action::RenderView>.
 
 How end method attributes will compose onto other classes which
 already have an end method is unknown (they shouldn't..)
+
+How renaming the supplied 'end' method will work is untested at
+the moment.
 
 =head1 AUTHOR
 

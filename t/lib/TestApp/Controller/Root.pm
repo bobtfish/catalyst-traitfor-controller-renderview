@@ -3,12 +3,7 @@ use Moose;
 use namespace::autoclean;
 
 BEGIN { extends qw/Catalyst::Controller/ }
-with 'CatalystX::Component::Traits';
 
-__PACKAGE__->config(
-    namespace => '',
-#FIXME    traits => [qw/ RenderView /],
-);
 with 'Catalyst::TraitFor::Controller::RenderView';
 
 sub test_view : Global {

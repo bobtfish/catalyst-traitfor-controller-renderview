@@ -22,7 +22,7 @@ author_requires 'Test::Pod' => '1.14';
 
 author_tests 't/author';
 
-resources repository => 'http://goatse.co.uk/~bobtfish/catalyst-traitfor-controller-renderview.git';
+resources repository => 'git://github.com/bobtfish/catalyst-traitfor-controller-renderview.git';
 
 if ($Module::Install::AUTHOR) {
     system("pod2text lib/Catalyst/TraitFor/Controller/RenderView.pm > README")

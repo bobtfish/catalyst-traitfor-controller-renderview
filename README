@@ -6,14 +6,9 @@ SYNOPSIS
         package MyApp::Controller::Root;
         use Moose;
         use namespace::autoclean;
-    
+
         BEGIN { extends 'Catalyst::Controller' }
-        with 'CatalystX::Component::Traits';
-    
-        __PACKAGE__->config(
-            namespace => '',
-            traits => [qw/ RenderView /],
-        );
+        with 'Catalyst::TraitFor::Controller::RenderView;
 
 DESCRIPTION
     This is an experimental alternative to Catalyst::Action::RenderView.
@@ -24,14 +19,14 @@ METHODS
     Catalyst::Action::RenderView after end action.
 
 BUGS
-    Will not compose with CatalystX::Components::Traits and traits => [qw/
-    RenderView /].
-
     The code is a horrible hack, as it delegates all the work to
     Catalyst::Action::RenderView.
 
     How end method attributes will compose onto other classes which already
     have an end method is unknown (they shouldn't..)
+
+    How renaming the supplied 'end' method will work is untested at the
+    moment.
 
 AUTHOR
     Tomas Doran (t0m) "bobtfish@bobtfish.net".
